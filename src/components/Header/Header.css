@@ -1,0 +1,105 @@
+
+
+/* Barra fixa no topo */
+.navbar {
+  position: sticky; /* pode usar fixed se preferir */
+  top: 0;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Linha interna: controla alinhamentos no desktop */
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #f8b400;
+}
+
+/* Botão do menu (mobile) */
+.menu-toggle {
+  display: none;            /* escondido no desktop */
+  margin-left: auto;        /* empurra para o canto direito no mobile */
+  font-size: 1.8rem;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  color: #f8b400;
+  cursor: pointer;
+}
+
+/* Links: desktop padrão lado a lado */
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-left: auto;        /* empurra o bloco de links para a direita no desktop */
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: #f8b400;
+  color: #fff;
+}
+
+/* Mobile: dropdown por baixo da barra */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;         /* mostra o ícone ☰/✖ */
+  }
+
+  /* No mobile, os links não ficam lado a lado dentro da linha;
+     viram um dropdown que ocupa toda a largura abaixo. */
+  .nav-links {
+    display: none;          /* escondido por padrão no mobile */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;              /* imediatamente abaixo da navbar-inner */
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-links.active {
+    display: flex;          /* mostra quando menuOpen = true */
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: left;
+    padding: 0.9rem 0.6rem;
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  /* Garante contexto de posicionamento do dropdown */
+  .navbar {
+    position: sticky;
+  }
+
+  .navbar-inner {
+    position: relative;     /* necessário para top: 100% funcionar no dropdown */
+  }
+}
