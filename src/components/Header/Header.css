@@ -1,15 +1,11 @@
-
-
-/* Barra fixa no topo */
 .navbar {
-  position: sticky; /* pode usar fixed se preferir */
+  position: sticky; 
   top: 0;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 1000;
 }
 
-/* Linha interna: controla alinhamentos no desktop */
 .navbar-inner {
   display: flex;
   align-items: center;
@@ -17,17 +13,15 @@
   padding: 1rem 2rem;
 }
 
-/* Logo */
 .logo {
   font-size: 1.6rem;
   font-weight: bold;
   color: #f8b400;
 }
 
-/* Botão do menu (mobile) */
 .menu-toggle {
-  display: none;            /* escondido no desktop */
-  margin-left: auto;        /* empurra para o canto direito no mobile */
+  display: none;            
+  margin-left: auto;        
   font-size: 1.8rem;
   line-height: 1;
   background: transparent;
@@ -36,11 +30,11 @@
   cursor: pointer;
 }
 
-/* Links: desktop padrão lado a lado */
+
 .nav-links {
   display: flex;
   gap: 1.2rem;
-  margin-left: auto;        /* empurra o bloco de links para a direita no desktop */
+  margin-left: auto;        
   align-items: center;
 }
 
@@ -53,7 +47,7 @@
   transition: background 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-links.active {
   background: #f8b400;
   color: #fff;
 }
@@ -61,17 +55,15 @@
 /* Mobile: dropdown por baixo da barra */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;         /* mostra o ícone ☰/✖ */
+    display: block;         
   }
 
-  /* No mobile, os links não ficam lado a lado dentro da linha;
-     viram um dropdown que ocupa toda a largura abaixo. */
   .nav-links {
-    display: none;          /* escondido por padrão no mobile */
+    display: none;         
     position: absolute;
     left: 0;
     right: 0;
-    top: 100%;              /* imediatamente abaixo da navbar-inner */
+    top: 100%;              
     background: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     flex-direction: column;
@@ -80,7 +72,7 @@
   }
 
   .nav-links.active {
-    display: flex;          /* mostra quando menuOpen = true */
+    display: flex;      
   }
 
   .nav-links a {
@@ -94,12 +86,11 @@
     border-bottom: none;
   }
 
-  /* Garante contexto de posicionamento do dropdown */
   .navbar {
     position: sticky;
   }
 
   .navbar-inner {
-    position: relative;     /* necessário para top: 100% funcionar no dropdown */
+    position: relative;     
   }
 }

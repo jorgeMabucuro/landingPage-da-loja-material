@@ -7,8 +7,9 @@ function Footer() {
         
         {/* Links rápidos */}
         <div className="footer-links">
-          <a href="#home">Início</a>
+          <a href="#hero">Início</a>
           <a href="#products">Produtos</a>
+          <a href="#info">Sobre Nós</a>
           <a href="#contact">Contactos</a>
         </div>
 

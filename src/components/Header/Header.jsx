@@ -3,13 +3,13 @@ import "./Header.css";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
 
   return (
     <header className="navbar">
       <div className="navbar-inner">
         <div className="logo">Material de Confeitaria com a Edna</div>
 
-        {/* Ícone de menu: ☰ quando fechado, ✖ quando aberto */}
         <button
           className="menu-toggle"
           aria-label="Abrir/fechar menu"
@@ -18,12 +18,34 @@ function Header() {
           {menuOpen ? "✖" : "☰"}
         </button>
 
-        {/* Links (desktop visível; mobile controlado pelo estado) */}
         <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <a href="#hero">Início</a>
-          <a href="#products">Produtos</a>
-          <a href="#info">Sobre Nós</a>
-          <a href="#contact">Contactos</a>
+          <a 
+            href="#hero" 
+            className={`nav-links ${activeLink === "Inicio" ? 'active': ''}`}
+            onClick={()=> setActiveLink('Inicio')}>
+            Início
+          </a>
+
+          <a 
+            href="#products"
+            className={`nav-links ${activeLink === "Produtos" ? 'active': ''}`}
+            onClick={()=> setActiveLink('Produtos')}>
+            Produtos
+          </a>
+
+          <a href="#info"
+            className={`nav-links ${activeLink === "Sobre Nos" ? 'active' : ''}`}
+            onClick={()=> setActiveLink("Sobre Nos")}>
+            Sobre Nós
+          </a>
+
+
+          <a href="#contact"
+            className={`nav-links ${activeLink === "Contactos" ? 'active' : ''}`}
+            onClick={()=> setActiveLink("Contactos")}>
+            Contactos
+
+          </a>
         </nav>
       </div>
     </header>
