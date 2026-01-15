@@ -31,7 +31,7 @@ function Contact() {
       <div className="contact-map">
         <iframe
           title="Mapa da Loja"
-          src="https://www.google.com/maps?q=-25.774405,32.608148&output=embed"
+          src="https://www.google.com/maps?q=-25.774405,32.608148&z=17&output=embed"
           width="100%"
           height="350"
           style={{ border: 0 }}
